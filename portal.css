@@ -1,0 +1,280 @@
+/* ============================================================
+   MERCANTILE OFFICE SYSTEMS - PORTAL STYLES
+   ============================================================
+   The embedded-app clip fix here is the SAME proven pattern used
+   in the working personal portal: a clip window hides the Google
+   banner while the iframe is pulled up behind the top bar.
+   Mobile-first; the media query adds tablet/desktop sizing.
+   ============================================================ */
+
+/* ---- Theme tokens (colours in one place) ---- */
+:root {
+    --brand-dark:   #003366;
+    --brand-mid:    #0056b3;
+    --danger:       #dc3545;
+    --danger-dark:  #bd2130;
+    --bg:           #f4f7f6;
+    --card-bg:      #ffffff;
+    --border:       #e2e8f0;
+    --text:         #333333;
+    --text-soft:    #4a5568;
+    --text-faint:   #718096;
+}
+
+/* ---- Reset ---- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+/* ============================================================
+   PORTAL VIEW
+   ============================================================ */
+.main-header {
+    background-color: var(--brand-dark);
+    color: #ffffff;
+    padding: 28px 0;
+    text-align: center;
+    border-bottom: 4px solid var(--brand-mid);
+}
+
+.main-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.main-header .subtitle {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    font-weight: 300;
+}
+
+.search-section {
+    background-color: var(--card-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+#appSearch {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    display: block;
+    margin: 0 auto;
+}
+
+#appSearch:focus {
+    border-color: var(--brand-mid);
+}
+
+main {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.card-body { padding: 24px; }
+
+.card-title {
+    font-size: 1.4rem;
+    color: var(--brand-dark);
+    margin-bottom: 12px;
+}
+
+.card-text {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+}
+
+.card-footer { padding: 0 24px 24px 24px; }
+
+.btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-launch {
+    background-color: var(--brand-mid);
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+
+.btn-launch:hover {
+    background-color: var(--brand-dark);
+}
+
+.main-footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    text-align: center;
+    padding: 24px 0;
+    font-size: 0.85rem;
+    border-top: 3px solid var(--brand-dark);
+}
+
+.footer-content p { margin: 4px 0; }
+.developer-credit { font-size: 0.8rem; color: var(--text-faint); }
+
+/* ============================================================
+   EMBEDDED APP VIEW  -  the proven clip fix
+   ============================================================
+   Structure inside #embedded-container:
+     embedded-header   (your dark top bar - covers the banner)
+     .frame-clip       (clip window - hides overflow)
+       #app-viewport   (iframe - taller, pulled up by --app-clip)
+
+   --app-clip is set per app by portal.js. The iframe is made
+   taller than its window by that amount and shifted up by the
+   same amount, so the Google banner hides behind the top bar
+   and your app content stays fully visible. */
+#embedded-container {
+    --app-clip: 48px;          /* default; portal.js overrides per app */
+    position: fixed;
+    inset: 0;
+    height: 100dvh;            /* dynamic height: fixes mobile address-bar cutoff */
+    background-color: var(--card-bg);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Compact top bar. Doubles as the cover for the Google banner. */
+.embedded-header {
+    background-color: var(--brand-dark);
+    color: #ffffff;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--brand-mid);
+    flex-shrink: 0;
+}
+
+.embedded-header-info h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60vw;
+}
+
+.embedded-header-info p {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60vw;
+}
+
+#close-embedded-btn {
+    background-color: var(--danger);
+    color: #ffffff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+#close-embedded-btn:hover {
+    background-color: var(--danger-dark);
+}
+
+/* The clip window: fills space below the bar, hides overflow. */
+.frame-clip {
+    position: relative;
+    flex: 1 1 auto;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* The iframe offset:
+   --app-clip POSITIVE  -> iframe pulled UP   (hides a top banner)
+   --app-clip NEGATIVE  -> iframe pushed DOWN (reveals app's own title)
+
+   We use abs() in the height so the iframe always stays tall
+   enough to fill the clip window no matter which direction it
+   moves, leaving no blank gap. */
+.viewport-frame {
+    position: absolute;
+    top: calc(-1 * var(--app-clip));
+    left: 0;
+    width: 100%;
+    height: calc(100% + max(var(--app-clip), -1 * var(--app-clip)));
+    border: 0;
+    display: block;
+}
+
+/* ============================================================
+   RESPONSIVE  -  tablet and up
+   ============================================================ */
+@media (min-width: 768px) {
+    .main-header { padding: 40px 0; }
+    .main-header h1 { font-size: 2.4rem; }
+    .main-header .subtitle { font-size: 1rem; }
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mercantile Office Systems - Portal</title>
+    <!-- Bump ?v= each time you edit portal.css so browsers fetch the new file. -->
+    <link rel="stylesheet" href="portal.css?v=1.1.0">
+</head>
+<body>
+
+    <!-- ============================================================
+         PORTAL VIEW  (the card menu)
+         The card grid is empty on purpose; portal.js fills it from
+         the apps list, so adding a menu later is a JS-only edit.
+         ============================================================ -->
+    <div id="portal-content">
+
+        <header class="main-header">
+            <div class="container">
+                <h1>Mercantile Office Systems Pvt. Ltd.</h1>
+                <p class="subtitle">Authorized Distributor for Acer, Epson, and Entrust</p>
+            </div>
+        </header>
+
+        <div class="search-section">
+            <div class="container">
+                <input type="text" id="appSearch" placeholder="Search web apps..."
+                       aria-label="Search web apps">
+            </div>
+        </div>
+
+        <main class="container">
+            <section class="card-grid" id="cardGrid">
+                <!-- Cards injected here by portal.js -->
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container footer-content">
+                <p>&copy; 2026 Mercantile Office Systems Pvt. Ltd. All Rights Reserved.</p>
+                <p class="developer-credit">Developed by Surendra Siddhi Bajracharya</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ============================================================
+         EMBEDDED APP VIEW
+         Hidden until a card is launched. The compact top bar covers
+         the Google banner; the .frame-clip wrapper hides the banner
+         while the iframe is pulled up behind the bar (see portal.css).
+         ============================================================ -->
+    <div id="embedded-container" class="is-hidden">
+
+        <div class="embedded-header">
+            <div class="embedded-header-info">
+                <h2 id="runtime-title">App View</h2>
+                <p id="runtime-desc">Operations Panel</p>
+            </div>
+            <button id="close-embedded-btn">Close &amp; Return</button>
+        </div>
+
+        <!-- Clip window + iframe: this is the proven fix from the working portal. -->
+        <div class="frame-clip">
+            <iframe id="app-viewport" class="viewport-frame" src="" title="Embedded web app"></iframe>
+        </div>
+    </div>
+
+    <script src="portal.js"></script>
+</body>
+</html>
