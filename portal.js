@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Dashboard",
             description: "Access real-time business insights, financial KPIs, and performance overviews in one centralized location.",
 //            url: "https://script.google.com/macros/s/AKfycbyD9hAae7Rx8Bj4Y_SByNXAPEpHVyVxH6McSBT0HPy8CxJ7aIsnbRv9e-dp7DFoU7Hr_g/exec"
-            url: "https://surensiddhi/github.io/mos-dashboard"
+            url: "https://surensiddhi.github.io/mos-dashboard"
             // no clip set -> uses DEFAULT_CLIP
         },
         {
