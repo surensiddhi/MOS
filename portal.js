@@ -47,6 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // no clip set -> uses DEFAULT_CLIP
         },
         {
+            title: "Fund Position",
+            description: "Monitor Fund Position, and track the sources of funds and their utilization.",
+            url: "https://script.google.com/macros/s/AKfycbxPfl9E9__Cd6GKif4LZX41lZbHV5xqqxBD9NoQKlCHMDHh4rxBxI4-YT8ZhUhlfH_a2A/exec",
+            clip: -5   // NEGATIVE: pushes the app DOWN so its own title shows below your bar
+        },      
+        {
             title: "Task Tracking",
             description: "Monitor project milestones, assign deliverables, and track team progress across ongoing operations.",
             url: "https://script.google.com/macros/s/AKfycbylQWW1u4HRAks5yw9AqYzsgjg3ZgiRkReqxcLCbNENO1jNzSbH3xox-Efnp4vIiGk-/exec",
