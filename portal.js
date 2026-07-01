@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
             description: "Access real-time business insights, financial KPIs, and performance overviews in one centralized location.",
 //            url: "https://script.google.com/macros/s/AKfycbyD9hAae7Rx8Bj4Y_SByNXAPEpHVyVxH6McSBT0HPy8CxJ7aIsnbRv9e-dp7DFoU7Hr_g/exec"
             url: "https://surensiddhi.github.io/mos-dashboard/",
-           clip : -5
+           clip : -4
             // no clip set -> uses DEFAULT_CLIP
         },
         {
             title: "Fund Position",
             description: "Monitor Fund Position, and track the sources of funds and their utilization.",
             url: "https://script.google.com/macros/s/AKfycbxPfl9E9__Cd6GKif4LZX41lZbHV5xqqxBD9NoQKlCHMDHh4rxBxI4-YT8ZhUhlfH_a2A/exec",
-            clip: -5   // NEGATIVE: pushes the app DOWN so its own title shows below your bar
+            clip: -4   // NEGATIVE: pushes the app DOWN so its own title shows below your bar
         },      
         {
             title: "Task Tracking",
